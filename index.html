@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amar Gurung | AI Agent Developer</title>
+
+    <link rel="icon" type="image/png" href="./assests/images/favicon.svg">
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-links">
+        <button id="theme-toggle" class="theme-btn">
+          <span class="mode-text">Light Mode</span>
+        </button>
+
+        <a
+          href="https://www.linkedin.com/in/amar-gurung-469a4937b/"
+          target="_blank"
+          >Linkedin</a
+        >
+        <a href="https://github.com/amargurung1013" target="_blank">Github</a>
+        <a href="https://www.instagram.com/amarlobbalol" target="_blank"
+          >Instagram</a
+        >
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="profile-pic fade-in delay-1">
+        <img src="./assests/images/amar-gurung.jpeg" alt="Amar Gurung" />
+      </div>
+
+      <section class="intro fade-in delay-2">
+        <h1>Hi, I'm Amar Gurung.</h1>
+        <p class="tagline">
+          AI Agent Developer who builds AI assistants that handle tasks,
+          workflows, and conversations 24/7.
+        </p>
+        <p class="about">
+          I'm an AI developer focused on building intelligent, real-world
+          applications using <strong>LangGraph</strong> and modern LLMs.
+          Currently exploring agent workflows and automation.
+        </p>
+      </section>
+
+      <section class="skills-section fade-in delay-3">
+        <h3>Top Skills</h3>
+        <ul class="skills-list">
+          <li>LangGraph</li>
+          <li>AI Agents</li>
+          <li>LangChain</li>
+          <li>OpenAI API</li>
+          <li>LLM Integration</li>
+        </ul>
+      </section>
+
+      <div class="cta fade-in delay-4">
+        <button id="openModal" class="btn">Message Me</button>
+      </div>
+    </main>
+
+    <div id="contactModal" class="modal-overlay">
+      <div class="modal-content">
+        <span id="closeModal" class="close-btn">&times;</span>
+        <h3>Connect with Amar</h3>
+
+        <form
+          action="mailto:amargurung1013@gmail.com"
+          method="post"
+          enctype="text/plain"
+          class="contact-form"
+        >
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("contactModal");
+      const btn = document.getElementById("openModal");
+      const span = document.getElementById("closeModal");
+
+      // Open the modal
+      btn.onclick = function () {
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Stop background scroll
+      };
+
+      // Close the modal (X button)
+      span.onclick = function () {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      };
+
+      // Close if clicking outside the box
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      };
+
+      const themeToggle = document.getElementById("theme-toggle");
+      const modeText = themeToggle.querySelector(".mode-text");
+
+      // Check for saved user preference
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+        modeText.innerText = "Dark Mode";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+        // Update button text and save preference
+        if (document.body.classList.contains("light-mode")) {
+          modeText.innerText = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          modeText.innerText = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+    </script>
+  </body>
+</html>
